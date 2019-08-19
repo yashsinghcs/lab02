@@ -6,8 +6,7 @@ public class Question1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
-        Scanner.close();
         System.out.println("Hello " + name);
-
+        input.close();
     }
 }
