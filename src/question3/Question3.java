@@ -12,6 +12,7 @@ public class Question3 {
         System.out.println(value1 + "*" + value2 + "=" + (value1 * value2));
         System.out.println(value1 + "/" + value2 + "=" + (value1 / value2));
         System.out.println(value1 + "%" + value2 + "=" + (value1 % value2));
+        scanner.close();
 
     }
 }
