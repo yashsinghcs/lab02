@@ -6,6 +6,6 @@ public class Question2 {
         Scanner scanner = new Scanner(System.in);
         String value1 = scanner.next().trim();
         String value2 = scanner.next().trim();
-        System.out.println(value1 + " UNIVERSITY" + value2);
+        System.out.println(value1 + " UNIVERSITY " + value2);
     }
 }
