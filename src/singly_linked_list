@@ -1,0 +1,136 @@
+package Class;
+import java.util.Scanner;
+
+public class SinglyLinkedList {
+    private ListNode head;
+
+    private static class ListNode {
+        private int data; // Genric Type
+        private ListNode next;
+
+        public ListNode(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public void display() {
+        ListNode curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " ->");
+            curr = curr.next;
+        }
+        System.out.println("null");
+    }
+    public void countNode() {
+        int count=0;
+        ListNode curr = head;
+        while (curr != null) {
+            count++;
+            curr = curr.next;
+        }
+        System.out.println(count);
+    }
+    public int length(){
+        if(head==null){
+            return 0;
+        }
+        int c=0;
+        ListNode current=head;
+        while(current!=null){
+            c++;
+            current=current.next;
+        }
+        return c;
+    }
+    public boolean findKey(ListNode head , int searchKey){
+        if(head==null){
+            return false;
+        }
+        ListNode current =head;
+        while(current!=null){
+            if(current.data==searchKey){
+                return true;
+            }
+            current=current.next;
+        }
+        return false;
+    }
+    public ListNode reverse(ListNode head){
+        if(head==null){
+            return head;
+        }
+        ListNode current =head;
+        ListNode previous = null;
+        ListNode next =null;
+        while(current!=null){
+            next =current.next;
+            current.next=previous;
+            previous=current;
+            current=current.next;
+        }
+        return previous;
+    }
+    public ListNode findSecond(int n,ListNode head){
+        ListNode refPtr = head;
+        ListNode mainPtr = head;
+        int count =0;
+        while(count<n){
+            refPtr=refPtr.next;
+            count++;
+        }
+        while(refPtr!=null){
+            refPtr = refPtr.next;
+            mainPtr=mainPtr.next;
+        }
+        return  mainPtr;
+    }
+    public void duplicateElement(){
+        if (head==null){
+            return;
+        }
+        ListNode current =head;
+        while(current!=null && current.next!=null){
+            if(current.data == current.next.data){
+                current.next=current.next.next;
+            }
+            else{
+                current = current.next;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList sll = new SinglyLinkedList();
+        sll.head = new ListNode(10);
+        Scanner sc = new Scanner(System.in);
+        ListNode second = new ListNode(1);
+        ListNode third = new ListNode(1);
+        ListNode fourth = new ListNode(4);
+       // System.out.println("Enter the no to be checked");
+        //int n = sc.nextInt();
+
+        sll.head.next = second;
+        second.next = third;
+        third.next = fourth;
+        sll.display();
+       // System.out.println(sll.findSecond(n ,sll.head));
+        //sll.countNode();
+        //sll.length();
+      /*  System.out.println("Enter the value to be searched");
+        int a = sc.nextInt();
+        if(sll.findKey(sll.head,a) == true){
+            System.out.println("Found");
+        }
+        else{
+            System.out.println("Not Found");
+        }
+        sll.reverse(sll.head); */
+        sll.duplicateElement();
+        sll.display();
+
+
+
+    }
+
+}
